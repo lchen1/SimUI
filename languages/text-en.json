@@ -1,0 +1,101 @@
+{
+	"topmenu": {  
+	    "sol_name":"Solution Name",
+	    "run_num":"Run Number",
+	    "left_time":"Left Time",
+	    "operation": "Operation",
+	    "workspace": "Workspace",
+	    "search_reset": "Search&amp;Reset"
+	},
+	"leftmenu": {
+		"solution": "Solution",
+		"calibration": "Calibration",
+		"run": "Run",
+		"status": "Status",
+		"chromatograph": "Chromatograph",
+		"report": "Reprot",
+		"data": "Data",
+		"channel1":"Channel1",
+		"channel2":"Channel2",
+		"channel3":"Channel3",
+		"channel4":"Channel4"
+	},
+
+	"solution": {
+
+	},
+
+	"calibration": {
+
+	},
+
+	"run": {
+
+	},
+
+	"status": {
+		"title": "490-PRO MicroGC",
+		"Inst_name": "Instrument name",
+		"Size_info": "Site info",
+		"Inst_serial": "Instrument serial number",
+		"GC_time": "GC time",
+		"GC_status": "GC Status",
+		"Sample_line_temp": "Sample Line Temperature [&deg;C]",
+		"Cabinet_temp": "Cabinet Temperature [&deg;C]",
+		"Cabinet_press": "Cabinet Pressure [kPa]",
+		"Service_switch": "Service Switch",
+		"Automation_state": "Automation State",
+		"GC_state": "GC State",
+		"GC_Status": "GC Status",
+		"Error_code": "Error Code",
+		"Curr_stream": "Current Stream",
+		"Ext_ready_in": "External Ready In",
+		"Channels": "Channels",
+		"Channel_Description": "Column Description",
+		"Channel_Carrier_gas": "Carrier Gas",
+		"Channel_Serial_num": "Channel Serial Number",
+		"setpoint": "Setpoint",
+		"actual": "Actual",
+		"col_Temp": "Column Temperature[&deg;C]",
+		"inj_Temp": "Injector Temperature[&deg;C]",
+		"col_Pres": "Column Pressure[kPa]",
+		"auto_Zero": "Auto Zero[mV]",
+		"data_State": "Detector State/Calibrated"
+	},
+
+	"chromatograph": {
+
+	},
+
+	"report": {
+		"samp_Res": "Sample Results",
+		"Injection_time": "Injection time",
+		"Run_id": "Run ID",
+		"Run_type": "Run type",
+		"Calibration_level": "Calibration level",
+		"Sample_stream": "Sample stream",
+		"Alarms": "Alarms",
+		"Energy_meter": "Energy meter",
+		"Active_Method": "Active Method",
+		"Compressibility_air": "Compressibility air",
+		"Reference_temperature": "Reference temperature",
+		"Compressibility": "Compressibility",
+		"Molar_Mass": "Molar Mass",
+		"Molar_Mass_Ratio": "Molar Mass Ratio",
+		"Rel_Density": "Rel.Density",
+		"Abs_Density": "Abs.Density",
+		"Hs": "Hs",
+		"Hi": "Hi",
+		"Wobbe_Sup": "Wobbe Sup.",
+		"Wobbe_Inf": "Wobbe Inf.",
+		"Components": "Components",
+		"ESTD": "ESTD",
+		"Norms": "Norms%",
+		"Weight": "Weight%"
+	},
+
+	"data": {
+		"local_data":"Local Data",
+		"usb_data":"USB Data"
+	}
+}

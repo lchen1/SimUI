@@ -1,0 +1,38 @@
+{
+  "STRoot": {
+    "Results": {
+      "Sample_rlt": {
+        "Injection_time": "10:07:52",
+        "Run_id": 999,
+        "Run_type": "Analysis",
+        "Calibration_level": 1,
+        "Sample_stream": 1,
+        "Alarms": "none"
+      },
+      "Energy_meter": {
+        "Active_method": "ISO 6976",
+        "Compressibility_air": { "Value": 0.99941, "Unit": "-" },
+        "Ref_temp": { "Value": 273.15, "Unit": "K" },
+        "Compressibility": { "Value": 1.0, "Unit": "-" },
+        "Molar_mass": { "Value": 25, "Unit": "kg/kmol" },
+        "Molar_mass_ratio": { "Value": 0.5, "Unit": "-" },
+        "Rel_density": { "Value": 1.2, "Unit": "-" },
+        "Abs_density": { "Value": 1, "Unit": "kg/m3"},
+        "Hs": { "Value": 15.2, "Unit": "MJ/m3" },
+        "Hi": { "Value": 12.2, "Unit": "MJ/m3" },
+        "Wobbe_sup": { "Value": 2.3, "Unit": "MJ/m3" },
+        "Wobbe_inf": { "Value": 0.3, "Unit": "MJ/m3" }           
+      },                                                  
+      "Application_rlt": {                                       
+        "Size": 5,                                               
+        "Components": [                                   
+          {"Name": "Nitrogen", "ESTD":1.2, "Norm":15, "Weight":20},
+          {"Name": "Methane", "ESTD":1.2, "Norm":15, "Weight":20}, 
+          {"Name": "CO2", "ESTD":1.2, "Norm":15, "Weight":20},    
+          {"Name": "Ethane", "ESTD":1.2, "Norm":15, "Weight":20},
+          {"Name": "Propane", "ESTD":2.4, "Norm":30, "Weight":20}  
+        ]                                                            
+      }                                                             
+    }                                                                
+  }                                                                 
+}           

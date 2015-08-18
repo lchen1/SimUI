@@ -1,0 +1,132 @@
+<!DOCTYPE html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+	<title>490 MicroGC</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Author" content="SHU Mslin/Liu">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/index.js"></script>
+
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+    	$(document).ready(function(){
+		  	$("a").click(function(){
+		  		$("a").removeClass("cur");
+				$(this).attr("class","cur");
+			});
+		});
+
+		function run(){
+		    if(document.getElementById("hidden_div").style.display=='none'){
+		         document.getElementById("hidden_div").style.display='block';}
+		    $("#btn").attr("disabled","true");
+		}
+		function stop(){
+			$("#btn").removeAttr("disabled");
+		}
+		function mySubmit(){
+			document.getElementById("myForm").submit();
+
+			if(document.getElementById("hidden_div").style.display=='block')
+		         document.getElementById("hidden_div").style.display='none';
+		}
+		function closeWin(){
+			if(document.getElementById("hidden_div").style.display=='block')
+		         document.getElementById("hidden_div").style.display='none';
+			 $("#btn").removeAttr("disabled");
+		}
+    </script>
+
+    <style type="text/css">
+    	#hidden_div {width: 100%;height: 100%;position: fixed;}
+    	#hidden_div div{width: 100%;height: 100%;position: fixed;display: block;opacity: 0.45;z-index: 100;top: 0;left: 0;background-color: #000000;}
+    	#hidden_div .opacity_form {width: 400px;height: 200px;position: fixed;margin-top: 12%;margin-left:35%;opacity: 1;display: block;background-color: #F3F6FA;z-index: 101;border-radius: 3px;box-shadow: 1px 2px 4px;padding: 30px;}
+    	#hidden_div .opacity_form input {margin: 15px;}
+    	#hidden_div .opacity_form input.in_4 {margin-left: 80px;margin-top: 40px;width: 80px;height: 40px;}
+    </style>
+    
+</head>
+<body>
+	<div id="hidden_div" style="display:none">
+		<div class="opacity_div"></div>
+		<form id="myForm" class="opacity_form" action="run.html" method="post" target="hidden_iframe">
+			<input type="radio" name="way" value="sequence" checked="checked">Sequence
+			<input type="text" name="times" value="1"/>
+			<br>
+			<input type="radio" name="way" value="single_run"/>Single Run
+			<br>
+			<input class="in_4" type="button" onclick="mySubmit();" name="load" value="load" />
+			<input class="in_4" type="button" name="load" value="close" onclick="closeWin();" />
+		</form>
+		<iframe name="hidden_iframe" src="" width="0" height="0"></iframe>
+	</div>
+	<div id="topbar">
+		<table class="tab_title">
+			<tr>
+				<td align="center" valign="center" width="20%" height="80%">
+					<img src="images/barlogo.png" alt="Agilent Technologies" border="0" height="100%" width="90%">
+				</td>
+				<td align="center" valign="center" width="60%" height="80%">
+					<img src="images/title.png" alt="490 MicroGC" border="0" width="25%" height="90%">
+				</td>
+				<td width="20%" align="right" valign="right" height="80%">
+                    <select id="ddlSomoveLanguage" onchange="chgLang();">
+			            <option value="">LAGUAGE</option>
+			            <option value="en">ENGLISH</option>
+			            <option value="zh">简体中文</option>
+			        </select>
+                </td>
+			</tr>
+		</table>
+
+		<table class="fix_table">
+			<tr class="single">
+				<td data-localize="topmenu.sol_name">Solution Name</td>
+				<td data-localize="status.GC_state">GC State</td>
+				<td data-localize="status.Error_code">Error Code</td>
+				<td data-localize="topmenu.run_num">Run Number</td>
+				<td data-localize="topmenu.left_time">Left Time</td>
+			</tr>
+			<tr class="double">
+				<td id="sol_name" class="font_color">Biomass</td>
+				<td id="GC_state" class="font_color"></td>
+				<td id="Error_code" class="font_color"></td>
+				<td id="run_num" class="font_color">1/1</td>
+				<td id="left_time" class="font_color">0/0</td>
+			</tr>
+		</table>
+		<div class="fix_div">
+			<!-- <form action="???" method="???">
+				<input name="run" type="image" src="images/run.png">
+				<input name="stop" type="image" src="images/stop.png">
+			</form> -->
+			<button id="btn" onclick="run();"><img src="images/run.png"></button>
+			<button onclick="stop();"><img src="images/stop.png"></button>
+		</div>
+	</div>
+
+	<div id="item">
+		<ul class="left_menu">
+            <li class="sq_1">
+                <a data-localize="leftmenu.status" href="javascript:void(0);" class="cur" onclick="switch_page1();">Status</a>
+            </li>
+            <li>
+                <a data-localize="leftmenu.data" href="javascript:void(0);" onclick="switch_page2();">Data</a>
+            </li>
+            <li>
+                <a data-localize="leftmenu.solution" href="javascript:void(0);"  onclick="switch_page3();">Solution</a>
+            </li>
+            <li>
+                <a data-localize="leftmenu.calibration" href="javascript:void(0);"  onclick="switch_page4();">Calibration</a>
+            </li>
+        </ul>
+
+		<iframe class="main_content" id="iframe" src="workspace/status.html" name="mainContent"></iframe>
+	</div>
+
+
+</body>
+</html>

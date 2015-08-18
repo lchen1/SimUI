@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+body{ background-color:#FBFBFB;font-family: Times;font-size: 120%;}
+ul{ margin:0; border:0; padding:0;}
+ul li{ list-style:none; margin:0; border:0; padding:0;}
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp { border: 0; margin: 2px; padding: 0; } 
+html,body { height: 99%; }
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {  display: block; } 
+
+img { font-size: 0; vertical-align: middle;  -ms-interpolation-mode: bicubic; }
+li {  display: list-item; }
+
+hr { border: 0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
+a { text-decoration: none; color: #06C; }
+a:hover {text-decoration:underline;}
+
+h1 { font-size: 25px; }
+h2 { font-size: 23px; }
+h3 { font-size: 21px; }
+h4 { font-size: 19px; }
+h5 { font-size: 17px; }
+h6 { font-size: 15px; }
+
+ol { list-style: decimal; }
+ul { list-style: disc; }
+li { margin-left: 30px; }
+
+/* 主体部分 上方导航 */
+#topmenu{ height: 40%}
+#topmenu table{	border: 0;height: 100%;min-width: 80%;background-color: #0085D5;}
+#topmenu tr td{ height: 100%;}
+#prodContent{ height: 60%}
+#catnav{ height: 100%;}
+
+/* 主体部分 左侧导航 */
+#catContent{ min-width:15%;min-height: 100%;}
+#catContent ul{ margin-left: 2%;}
+#catContent .detail_list{ width:80%; float:left; position:relative; z-index:2; }
+#catContent .detail_list li{ margin-top:30%; margin-left: 5%;}
+
+#catContent .detail_list li.sq_1, #catContent .details{margin-top: 10px;}
+#catContent .detail_list li, #catContent li a{ width:95%; height:60px; display:block;}
+
+#catContent .details{ float:left; border:1px solid #D3D3D3; width:99%; height:auto; min-height:100%; _height:500px;
+    margin-left:5px; border-radius:4px; background-color:#fefefe;}
+#catContent .details.notl{ border-top-left-radius:0px;}
+
+#catContent .items {float: left; width: 6%;}
+#catContent .items a {overflow:hidden;text-overflow:ellipsis;white-space: nowrap;width: 100%; height: 70px; display: block; border: 1px solid #BBBBBB; line-height: 70px; text-decoration: none; vertical-align:middle;text-align: center;}
+#a_2 {margin-top: 10%; margin-bottom: 15%;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;}
+#catContent a:hover {background-color: #CCCCCC;}
+#catContent a.cur {background-color: #99FFFF; color: #FFFFFF;}
+
+#catContent .detail_list a {overflow:hidden;text-overflow:ellipsis;white-space: nowrap;text-decoration: none; vertical-align:middle;text-align: center;line-height: 60px;border: 1px solid #3399FF; font-size: 2em; background-color: #FFFFFF;}
+#catContent .detail_list a:hover {text-decoration: none; background-color: #AAAAAA;}
+#catContent .detail_list a.cur {text-decoration: none; background-color: #3399FF; color: #FFFFFF;}
+
+
+#content {width: 100%; }
+#content table {width: 80%; margin-left: 10%; margin-right: 10%; margin-top: 1%; text-align: center;}
+#content table td {width: 40%; height: 80px;}
+#content table .font td {font-size: 2em; font-family: times; color: #00FF00;}
+#content table .submit td input {width: 15%;}
+
+#solution {width: 100%;}
+#solution table {width: 100%;}
+#solution table td {width: 5%; margin-left: 1%;}
+
+#data {margin:1%;}
+#dtcontent .load input {margin-left: 45%; width: 60px;height: 30px;} 
