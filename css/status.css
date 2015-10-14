@@ -1,11 +1,9 @@
 /* 主体部分 右侧内容-status */
-body {font-size: 120%;font-family: Times;}
+body {font-family: Times;}
 hr { border: 0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
-#Automation { margin-left: 10%;}
-#GC{ margin-left: 5%;}
-#GC_Channel{ margin-left: 5%; min-width: 70px; word-wrap:break-word; overflow:hidden;}
-#channels{ margin-left: 5%; min-width: 70px;}
-#catContent td {font-size: 120%;}
+#GC_Channel{ min-width: 70px; word-wrap:break-word; overflow:hidden;}
+#channels{ min-width: 70px;}
+#dtcontent table{ width: 100%; height: auto; border: 0;}
 #dtcontent .GC td{ width: 25%;}
 #dtcontent .GC_Channel .double td{ width: 20%;}
 #dtcontent .font_color{ color: blue;}
@@ -15,4 +13,3 @@ hr { border: 0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
 #dtcontent .channel4{color:#888888;}
 #dtcontent .action{color: blue;}
 #dtcontent .set{color: #000000;}
-#dtcontent table{ width: 90%; height: auto; border: 0;}

@@ -1,132 +1,116 @@
-<!DOCTYPE html public "-//w3c//dtd html 4.0 transitional//en">
+<!DOCTYPE html>
 <html>
-<head>
-	<title>490 MicroGC</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="Author" content="SHU Mslin/Liu">
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script type="text/javascript" src="js/index.js"></script>
+  <head>
+    <title>Micro GC 490</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/sim.css">
+    <link rel="stylesheet" href="css/stdtheme.css">
+    <link rel="stylesheet" href="css/w3-theme-blue.css">
+    <link rel="stylesheet" href="lib/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/fonts/7-led.css">
 
 	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
-    
-    <script type="text/javascript">
-    	$(document).ready(function(){
-		  	$("a").click(function(){
-		  		$("a").removeClass("cur");
-				$(this).attr("class","cur");
-			});
-		});
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+  </head>
+  <body class="w3-light-grey">
+    <header class="w3-container w3-theme w3-card top">
+      <div class="w3-xxlarge toptext w3-wide w3-animate-opacity">Micro GC 490</div>
+      <img src="images/barlogo.png" alt="Agilent Technologies" class="w3-right topimg img-responsive w3-animate-right" style="height:40px;margin-top:20px;"/>
+    </header>
 
-		function run(){
-		    if(document.getElementById("hidden_div").style.display=='none'){
-		         document.getElementById("hidden_div").style.display='block';}
-		    $("#btn").attr("disabled","true");
-		}
-		function stop(){
-			$("#btn").removeAttr("disabled");
-		}
-		function mySubmit(){
-			document.getElementById("myForm").submit();
+    <article style="position:relative;">
+      <div class='w3-topnav w3-card-2 w3-slim topnav' id='topnav'>
+        <div style="overflow:auto;">
+          <a href="#" class="topnav-icons w3-hide-large w3-left" onclick="open_menu()" title="Menu"><i class="fa fa-bars"></i></a>
+          <a href="/index.html" class="topnav-icons w3-left" title="Home"><i class="fa fa-home"></i></a>
+          <a href="#id_play" class="topnav-icons"><i class="fa fa-play-circle">&nbsp;Run</i></a>
+          <a href="#" class="topnav-icons"><i class="fa fa-stop">&nbsp;Stop</i></a>
+          <a href="#" class="topnav-icons w3-right" title="Choose language"><i class="fa fa-globe"></i></a>
+        </div>
+      </div>
 
-			if(document.getElementById("hidden_div").style.display=='block')
-		         document.getElementById("hidden_div").style.display='none';
-		}
-		function closeWin(){
-			if(document.getElementById("hidden_div").style.display=='block')
-		         document.getElementById("hidden_div").style.display='none';
-			 $("#btn").removeAttr("disabled");
-		}
-    </script>
+      <div class="w3-row w3-card-2" id="monitors" style="padding-bottom:2px;">
+          <div class="w3-card w3-col s6 m3">
+            <div class="w3-theme-d2 w3-center">Solution</div>
+            <div id="sol_name" class="w3-center w3-light-green">N/A</div>
+          </div>
+          <div class="w3-card w3-col s6 m3">
+            <div class="w3-theme-d2 w3-center">State</div>
+            <div id="GC_state" class="w3-center w3-light-green">N/A</div>
+          </div>
+        
+          <div class="w3-card w3-col s6 m3">
+            <div class="w3-theme-d2 w3-center">Run No.</div>
+            <div id="run_num" class="w3-center w3-light-green">N/A</div>
+          </div>
+          <div class="w3-card w3-col s6 m3">
+            <!--<div class="w3-theme-d2 w3-center">Left Time</div>-->
+            <div id="left_time" class="w3-center w3-black w3-xxlarge" style="font-family:sevenLed;height:44px;">60</div>
+          </div>
+      </div>
 
-    <style type="text/css">
-    	#hidden_div {width: 100%;height: 100%;position: fixed;}
-    	#hidden_div div{width: 100%;height: 100%;position: fixed;display: block;opacity: 0.45;z-index: 100;top: 0;left: 0;background-color: #000000;}
-    	#hidden_div .opacity_form {width: 400px;height: 200px;position: fixed;margin-top: 12%;margin-left:35%;opacity: 1;display: block;background-color: #F3F6FA;z-index: 101;border-radius: 3px;box-shadow: 1px 2px 4px;padding: 30px;}
-    	#hidden_div .opacity_form input {margin: 15px;}
-    	#hidden_div .opacity_form input.in_4 {margin-left: 80px;margin-top: 40px;width: 80px;height: 40px;}
-    </style>
-    
-</head>
-<body>
-	<div id="hidden_div" style="display:none">
-		<div class="opacity_div"></div>
-		<form id="myForm" class="opacity_form" action="run.html" method="post" target="hidden_iframe">
-			<input type="radio" name="way" value="sequence" checked="checked">Sequence
-			<input type="text" name="times" value="1"/>
-			<br>
-			<input type="radio" name="way" value="single_run"/>Single Run
-			<br>
-			<input class="in_4" type="button" onclick="mySubmit();" name="load" value="load" />
-			<input class="in_4" type="button" name="load" value="close" onclick="closeWin();" />
-		</form>
-		<iframe name="hidden_iframe" src="" width="0" height="0"></iframe>
-	</div>
-	<div id="topbar">
-		<table class="tab_title">
-			<tr>
-				<td align="center" valign="center" width="20%" height="80%">
-					<img src="images/barlogo.png" alt="Agilent Technologies" border="0" height="100%" width="90%">
-				</td>
-				<td align="center" valign="center" width="60%" height="80%">
-					<img src="images/title.png" alt="490 MicroGC" border="0" width="25%" height="90%">
-				</td>
-				<td width="20%" align="right" valign="right" height="80%">
-                    <select id="ddlSomoveLanguage" onchange="chgLang();">
-			            <option value="">LAGUAGE</option>
-			            <option value="en">ENGLISH</option>
-			            <option value="zh">简体中文</option>
-			        </select>
-                </td>
-			</tr>
-		</table>
+      <section class="w3-row w3-light-grey" id="belowtopnav">
+        <div id="sidemenu" class="w3-col l2 m12 w3-slim">
+          <div class="w3-light-grey" id="sidemenuinner">
+            <a href="#" onclick="close_menu()" class="w3-closebtn w3-hide-large w3-large" style="padding:3px 12px;">&times;</a>
+            <a target="i_view" href="status/status.html" onclick="close_menu()">Status</a>
+            <a target="i_view" href="data/data.php" onclick="close_menu()">Data</a>
+            <a target="i_view" href="solution/solution.php" onclick="close_menu()">Solution</a>
+            <a target="i_view" href="calibration/calibration.html" onclick="close_menu()">Calibration</a>
+            <a target="i_view" href="sequence1/sequence.html" onclick="close_menu()">Sequence</a>
+            <div>&nbsp;</div>
+          </div>
 
-		<table class="fix_table">
-			<tr class="single">
-				<td data-localize="topmenu.sol_name">Solution Name</td>
-				<td data-localize="status.GC_state">GC State</td>
-				<td data-localize="status.Error_code">Error Code</td>
-				<td data-localize="topmenu.run_num">Run Number</td>
-				<td data-localize="topmenu.left_time">Left Time</td>
-			</tr>
-			<tr class="double">
-				<td id="sol_name" class="font_color">Biomass</td>
-				<td id="GC_state" class="font_color"></td>
-				<td id="Error_code" class="font_color"></td>
-				<td id="run_num" class="font_color">1/1</td>
-				<td id="left_time" class="font_color">0/0</td>
-			</tr>
-		</table>
-		<div class="fix_div">
-			<!-- <form action="???" method="???">
-				<input name="run" type="image" src="images/run.png">
-				<input name="stop" type="image" src="images/stop.png">
-			</form> -->
-			<button id="btn" onclick="run();"><img src="images/run.png"></button>
-			<button onclick="stop();"><img src="images/stop.png"></button>
-		</div>
-	</div>
+        </div>
+        <div class="w3-col l10 m12">
+          <div class="w3-white" style="position:relative;overflow:hidden">
+            <iframe name="i_view" id="main" src="status/status.html" style="width:100%;min-height:40px;" onload="resizeIframe();">
+            </iframe>
+          </div>
+        </div>
+      </section>
+      <!--used to preserve a space for scroll-->
+      <div class="w3-container"> 
+        <p class="w3-tiny">&nbsp;</p>
+      </div>
+    </article>
 
-	<div id="item">
-		<ul class="left_menu">
-            <li class="sq_1">
-                <a data-localize="leftmenu.status" href="javascript:void(0);" class="cur" onclick="switch_page1();">Status</a>
-            </li>
-            <li>
-                <a data-localize="leftmenu.data" href="javascript:void(0);" onclick="switch_page2();">Data</a>
-            </li>
-            <li>
-                <a data-localize="leftmenu.solution" href="javascript:void(0);"  onclick="switch_page3();">Solution</a>
-            </li>
-            <li>
-                <a data-localize="leftmenu.calibration" href="javascript:void(0);"  onclick="switch_page4();">Calibration</a>
-            </li>
-        </ul>
+    <footer class="w3-container w3-theme-light w3-hide-medium w3-hide-small" style="position:fixed;bottom:0px;z-index:2;width:100%;clear:both">
+      <p class="w3-tiny w3-right">Copyright &#169; Agilent 2015</p>
+    </footer>
 
-		<iframe class="main_content" id="iframe" src="workspace/status.html" name="mainContent"></iframe>
-	</div>
+    <div id="id_play" class="w3-modal">
+      <div class="w3-modal-content w3-card-4">
+        <header class="w3-container w3-theme">
+          <a href="#" class="w3-closebtn">&times;</a>
+          <h4>Start Run</h4>
+        </header>
+        <form class="w3-container">
+          <p>Choose the type of run:</p>
+          <label class="w3-checkbox">
+            <input type="radio" name="runtype" value="single" checked>
+            <div class="w3-checkmark"></div>&nbsp;Single Run
+          </label><br>
+          <label class="w3-checkbox">
+            <input type="radio" name="runtype" value="sequence">
+            <div class="w3-checkmark"></div>&nbsp;Sequence Run
+          </label><br>
+          <label class="w3-checkbox">
+            <input type="radio" name="runtype" value="calibrate">
+            <div class="w3-checkmark"></div>&nbsp;Calibration Run
+          </label>
+        </form>
+        <footer class="w3-container w3-theme">
+          <button class="w3-btn w3-steal w3-section">OK</button>
+          <button class="w3-btn w3-steal w3-section w3-right">Cancel</button>
+        </footer>
+      </div>
+    </div>
 
-
-</body>
+    <script src="js/sim_footer.js"></script>
+  </body>
 </html>

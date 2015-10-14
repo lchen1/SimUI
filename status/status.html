@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>490 Status</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/status.css" />
+    <link rel="stylesheet" type="text/css" href="../js/easyui/themes/default/easyui.css">
+    <!--<link rel="stylesheet" type="text/css" href="../js/easyui/themes/icon.css">-->
+
+    <!--<script type="text/javascript" src="../js/language_cookie.js" charset="utf-8"></script>-->
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/jquery.localize.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/easyui/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../js/status.js"></script>
+
+    <style>
+      .panel-body{
+        background:#f0f0f0;
+      }
+      .panel-header{
+        background:#fff url('../images/panel_header_bg.gif') no-repeat top right;
+      }
+      .panel-tool-collapse{
+        background:url('../images/arrow_up.gif') no-repeat 0px -3px;
+      }
+      .panel-tool-expand{
+        background:url('../images/arrow_down.gif') no-repeat 0px -3px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="catContent">       
+      <div class="details" id="dtcontent">
+
+        <div id="Automation" class="easyui-panel" title="Instrument Info" collapsible="true" style="width:100%;height:auto;padding:10px;">
+          <table>
+            <tr>
+              <td width="50%"><b data-localize="status.title">490-PRO MicroGC</b></td>
+            </tr>
+            <tr>
+              <td data-localize="status.Inst_name">Instrument name</td>
+              <td id="Inst_name" class="font_color"></td>
+            </tr>
+            <tr>
+              <td data-localize="status.Size_info">Site info</td>
+              <td id="Site_info" class="font_color"></td>
+            </tr>
+            <tr>
+              <td data-localize="status.Inst_serial">Instrument serial number</td>
+              <td id="Inst_serial" class="font_color"></td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="GC_Channel" class="easyui-panel" title="Channel Info" collapsible="true" style="width:100%;height:auto;padding:10px;">
+          <table class="GC_Channel">
+            <tr class="double">
+              <td ><b data-localize="status.Channels">Channels</b></td>
+              <td id="Channel1" class="channel1"></td>
+              <td id="Channel2" class="channel2"></td>
+              <td id="Channel3" class="channel3"></td>
+              <td id="Channel4" class="channel4"></td>
+            </tr>
+
+            <tr class="double">
+              <td data-localize="status.Channel_Description">Description</td>
+              <td id="Channel1_Description" class="channel1"></td>
+              <td id="Channel2_Description" class="channel2"></td>
+              <td id="Channel3_Description" class="channel3"></td>
+              <td id="Channel4_Description" class="channel4"></td>
+            </tr>
+
+            <tr class="double">
+              <td data-localize="status.Channel_Carrier_gas">Carrier</td>
+              <td id="Channel1_Carrier_gas" class="channel1"></td>
+              <td id="Channel2_Carrier_gas" class="channel2"></td>
+              <td id="Channel3_Carrier_gas" class="channel3"></td>
+              <td id="Channel4_Carrier_gas" class="channel4"></td>
+            </tr>
+
+            <tr class="double">
+              <td data-localize="status.Channel_Serial_num">Serial No.</td>
+              <td id="Channel1_Serial_num" class="channel1"></td>
+              <td id="Channel2_Serial_num" class="channel2"></td>
+              <td id="Channel3_Serial_num" class="channel3"></td>
+              <td id="Channel4_Serial_num" class="channel4"></td>
+            </tr>
+          </table>
+        </div>
+
+
+        <div id="channels" class="easyui-panel" title="Setpoint &amp; Actuals" collapsible="true" style="width:100%;height:auto;padding:10px;">
+          <table>
+            <tr>
+              <td width="20%">&nbsp;</td>
+              <td data-localize="status.setpoint" width="10%" class="channel1" id="set1">Spt.</td>
+              <td data-localize="status.actual" width="10%" class="channel1" id="act1">Act.</td>
+              <td data-localize="status.setpoint" width="10%" class="channel2" id="set2">Spt.</td>
+              <td data-localize="status.actual" width="10%" class="channel2" id="act2">Act.</td>
+              <td data-localize="status.setpoint" width="10%" class="channel3" id="set3">Spt.</td>
+              <td data-localize="status.actual" width="10%" class="channel3" id="act3">Act.</td>
+              <td data-localize="status.setpoint" width="10%" class="channel4" id="set4">Spt.</td>
+              <td data-localize="status.actual" width="10%" class="channel4" id="act4">Act.</td>
+            </tr>
+
+            <tr>
+              <td data-localize="status.col_Temp">Column Temp[&deg;C]</td>
+              <td class="channel1" id="Channel1_Column_temp_setpoint"></td>
+              <td class="channel1" id="Channel1_Column_temp_actual">n/a</td>
+              <td class="channel2" id="Channel2_Column_temp_setpoint"></td>
+              <td class="channel2" id="Channel2_Column_temp_actual">n/a</td>
+              <td class="channel3" id="Channel3_Column_temp_setpoint"></td>
+              <td class="channel3" id="Channel3_Column_temp_actual">n/a</td>
+              <td class="channel4" id="Channel4_Column_temp_setpoint"></td>
+              <td class="channel4" id="Channel4_Column_temp_actual">n/a</td>
+            </tr>
+
+            <tr>
+              <td data-localize="status.inj_Temp">Injector Temp[&deg;C]</td>
+              <td class="channel1" id="Channel1_Injector_temp_setpoint"></td>
+              <td class="channel1" id="Channel1_Injector_temp_actual">n/a</td>
+              <td class="channel2" id="Channel2_Injector_temp_setpoint"></td>
+              <td class="channel2" id="Channel2_Injector_temp_actual">n/a</td>
+              <td class="channel3" id="Channel3_Injector_temp_setpoint"></td>
+              <td class="channel3" id="Channel3_Injector_temp_actual">n/a</td>
+              <td class="channel4" id="Channel4_Injector_temp_setpoint"></td>
+              <td class="channel4" id="Channel4_Injector_temp_actual">n/a</td>
+            </tr>
+
+            <tr>
+              <td data-localize="status.col_Pres">Column Press[kPa]</td>
+              <td class="channel1" id="Channel1_Column_press_setpoint"></td>
+              <td class="channel1" id="Channel1_Column_press_actual">n/a</td>
+              <td class="channel2" id="Channel2_Column_press_setpoint"></td>
+              <td class="channel2" id="Channel2_Column_press_actual">n/a</td>
+              <td class="channel3" id="Channel3_Column_press_setpoint"></td>
+              <td class="channel3" id="Channel3_Column_press_actual">n/a</td>
+              <td class="channel4" id="Channel4_Column_press_setpoint"></td>
+              <td class="channel4" id="Channel4_Column_press_actual">n/a</td>
+            </tr>
+
+            <tr>
+              <td data-localize="status.auto_Zero">Auto Zero[mV]</td>
+              <td class="channel1" id="Channel1_Auto_zero_setpoint"></td>
+              <td class="channel1" id="Channel1_Auto_zero_actual">n/a</td>
+              <td class="channel2" id="Channel2_Auto_zero_setpoint"></td>
+              <td class="channel2" id="Channel2_Auto_zero_actual">n/a</td>
+              <td class="channel3" id="Channel3_Auto_zero_setpoint"></td>
+              <td class="channel3" id="Channel3_Auto_zero_actual">n/a</td>
+              <td class="channel4" id="Channel4_Auto_zero_setpoint"></td>
+              <td class="channel4" id="Channel4_Auto_zero_actual">n/a</td>
+            </tr>
+
+            <tr>
+              <td data-localize="status.data_State">Detector State/Calibrated</td>
+              <td class="channel1" id="Channel1_State_setpoint"></td>
+              <td class="channel1" id="Channel1_State_actual">n/a</td>
+              <td class="channel2" id="Channel2_State_setpoint"></td>
+              <td class="channel2" id="Channel2_State_actual">n/a</td>
+              <td class="channel3" id="Channel3_State_setpoint"></td>
+              <td class="channel3" id="Channel3_State_actual">n/a</td>
+              <td class="channel4" id="Channel4_State_setpoint"></td>
+              <td class="channel4" id="Channel4_State_actual">n/a</td>
+            </tr>
+            <tr>
+              <td data-localize="status.Sample_line_temp">Sample Line Temp[&deg;C]</td>
+              <td id="Sample_line_temp_setpoint" class="font_color" width="10%"></td>
+              <td id="Sample_line_temp_actual" class="font_color" width="10%"></td>
+              <td width="10%"></td>
+            </tr>
+            <tr>
+              <td data-localize="status.Cabinet_temp">Cabinet Temp[&deg;C]</td>
+              <td ></td>
+              <td id="Cabinet_temp" class="font_color"></td>
+            </tr>
+            <tr>
+              <td data-localize="status.Cabinet_press">Cabinet Press[kPa] </td>
+              <td ></td>
+              <td id="Cabinet_press" class="font_color"></td>
+            </tr>
+          </table>
+        </div>
+
+
+        <div id="GC" class="easyui-panel" title="GC State" collapsible="true" style="width:100%;height:auto;padding:10px;">
+          <table class="GC">
+            <tr class="single">
+              <td data-localize="status.GC_time">GC time</td>
+              <td id="GC_time" class="font_color"></td>
+              <td data-localize="status.Ext_ready_in">External Ready In </td>
+              <td id="Ext_ready_in" class="font_color"></td>
+            </tr>
+            <tr class="double">
+              <td data-localize="status.Automation_state">Automation State </td>
+              <td id="Automation_state" class="font_color"></td>
+              <td data-localize="status.Service_switch">Service Switch </td>
+              <td id="Service_switch" class="font_color"></td>
+            </tr>
+            <tr class="single">
+              <td data-localize="status.GC_state">GC State </td>
+              <td id="GC_state" class="font_color"></td>
+              <td data-localize="status.Curr_stream">Current Stream </td>
+              <td id="Curr_stream" class="font_color"></td>
+            </tr>
+            <tr class="double">
+              <td data-localize="status.GC_Status">GC Status </td>
+              <td id="GC_status" class="font_color" colspan="3"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

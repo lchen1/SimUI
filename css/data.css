@@ -8,7 +8,7 @@ hr { border: 0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
 #form li {width: 100%; height: 5%; display: block;}
 #form li.cur input{background-color: #999999;}
 #form li input {width: 100%; height: 100% ; display: inline-block; border: 0; list-style: none;text-align: left; text-indent: 2em;margin-top: 5px;}
-#data .iframe {width: 85%; height: 100%; float: left; margin: 0; padding: 0;border: 0;}
+#data .iframe {width: 85%; height: 200%; float: left; margin: 0; padding: 0;border: 0;}
 #local {margin-top: 2%; text-indent: 1em;}
 #usb {margin-top: 5%; text-indent: 1em;}
 
@@ -16,6 +16,7 @@ hr { border: 0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
 #body .double td{ width: 20%;}
 #body .font_blue{ color: blue;}
 #body .font_black{ color: #000000;}
+#body{border-bottom:1px solid #E6E6E6;height:auto;overflow:auto;padding-top:2px;}
 #content {width: 45%; float: left; position: relative;}
 /*#content tr {background-color: #FFCCFF}*/
 #content td {width: 10%;}
@@ -28,3 +29,40 @@ hr { border: 0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
 #div_right td {width: 20%; height: 30px;}
 
 #graph {width: 70%; float: left; margin-top: 2%; margin-left: 5%;}
+
+
+
+
+
+
+.banner{border-style:solid;border-color:gray;border-width:1px;}
+.banner .showf{overflow:hidden;margin:auto;width:100%;height:220px;position:relative;}
+.banner .shows{float:left;display:none;width:100%;position:absolute;top:0px;left:0px;}
+.banner .button{display:block;margin:auto;}
+.clear{clear:both;}
+.banner a{           /*统一设置所有样式*/ 
+ font-family: Arial;
+ font-size: .8em;
+ text-align:center;
+ margin:auto;
+}
+.banner a:link, a:visited{       /*超链接正常状态、被访问过的样式*/ 
+ color: #A62020;
+ padding:4px 10px 4px 10px;
+ background-color: #ecd8db;
+ text-decoration: none;
+ border-top: 1px solid #EEEEEE;  /*边框实现阴影效果*/ 
+ border-left: 1px solid #EEEEEE;
+ border-bottom: 1px solid #717171;
+ border-right: 1px solid #717171;
+}
+.banner a:hover{         /*鼠标经过时的超链接*/
+ color:#821818;     /* 改变文字颜色*/
+ padding:5px 8px 3px 12px;   /*改变文字位置 */
+ background-color:#e2c4c9;    /*改变背景色 */
+ border-top: 1px solid #717171;   /*边框变换，实现“按下去”的效果*/ 
+ border-left: 1px solid #717171;
+ border-bottom: 1px solid #EEEEEE;
+ border-right: 1px solid #EEEEEE;
+}
+.banner .button .index{background-color: #999999;};

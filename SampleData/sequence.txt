@@ -1,0 +1,25 @@
+{
+    "Table_repeat": 5,
+    "Continuous": "No",
+    "total": 3,
+    "rows": [
+        {
+            "Type": "Analysis",
+            "Repeat": 2,
+            "Stream": 1,
+            "Flush_time": 15.0
+        },
+        {
+            "Type": "Calibration",
+            "Repeat": 2,
+            "Stream": 2,
+            "Flush_time": 20.0
+        },
+        {
+            "Type": "Blank",
+            "Repeat": 3,
+            "Stream": 1,
+            "Flush_time": 15.0
+        }
+    ]
+}

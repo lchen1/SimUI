@@ -1,0 +1,12 @@
+{
+    "Table_repeat": 3,
+    "total": 4,
+    "continuous":true,
+    "rows": [
+      {"type": "Analysis", "Repeat": "5", "Stream": 1, "Flush": 14},
+      {"type": "Calibration", "Repeat": 1, "Stream": 5, "Flush": 15},
+      {"type": "Analysis", "Repeat": 3, "Stream": 2, "Flush": 13},
+      {"type": "Verification", "Repeat": 1, "Stream": 5, "Flush": 16}
+    ]
+  }
+

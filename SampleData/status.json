@@ -1,52 +1,44 @@
 {
-  "STRoot": {
-    "General": {
-      "Inst_name": "microgc",
-      "Size_info": "",
-      "Inst_serial": 12046003,
-      "GC_time": "28-7-2015 12:00:00"
+    "GC_time": "23-9-2015 09:08:42",
+    "Application": "BTEX",
+    "Host": "online",
+    "Total_run_time": 60,
+    "Run_time": 0,
+    "Error_code": 21012,
+    "Curr_stream": 0,
+    "Last_counter": 0,
+    "Continuous": true,
+    "Seq_line": 0,
+    "Line_replicate": 0,
+    "Seq_replicate": 0,
+    "Run_type": "Analysis",
+    "GC_state": "Not Ready",
+    "Ext_ready_in": "Ready",
+    "Auto_state": "Idle",
+    "Service_switch": "On",
+    "Ambient_press": 100.8810806274414,
+    "Ambient_temp": 31,
+    "Sample_line_temp": {
+        "Setpoint": "-",
+        "Actual": "-"
     },
-    "Status": {
-      "Sample_line_temp": 35,
-      "Cabinet_temp": 28,
-      "Cabinet_press": 110,
-      "Service_switch": "On",
-      "Automation_state": "Idle",
-      "GC_state": "Ready",
-      "GC_status": "OK",
-      "Error_code": 0,
-      "Curr_stream": 0,
-      "Ext_ready_in": "Ready",
-      "Channels": {
-        "Channel1":{
-          "Installed": true,
-          "Enabled": true,
-          "Fixed": {
-            "Description": "CP-4900 Backflush Column Module, 10m PPQ",
-            "Carrier_gas": "Henium",
-            "Serial_num": 58545
-          },
-          "Variable": {
-            "Column_temp": 55,
-            "Column_press": 70,
-            "Injector_temp": 40,
-            "TCD": {
-              "Auto_zero": 25.5,
-              "State": "On",
-              "Calibrated": true
-            }
-          }
+    "Channel1": {
+        "Column_temp": {
+            "Setpoint": 65.0,
+            "Actual": 64.97356651165659
         },
-        "Channel2": {
-          "Installed": false
+        "Column_press": {
+            "Setpoint": 50000.0,
+            "Actual": 49985.0
         },
-        "Channel3": {
-          "Installed": false
+        "Injector_temp": {
+            "Setpoint": 52.0,
+            "Actual": 51.790294492229289
         },
-        "Channel4": {
-          "Installed": false
+        "TCD": {
+            "Auto_zero": 0.0,
+            "State": "Off",
+            "Calibrated": "X"
         }
-      } 
     }
-  }
 }

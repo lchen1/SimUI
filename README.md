@@ -1,7 +1,4 @@
 # SimUI
 Simplified UI
 
-
-Fei test
-
-Liu test
+A responsive web app demo for 490gc.

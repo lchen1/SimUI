@@ -1,0 +1,36 @@
+{
+    "Inst_name": "490-PRO Micro GC",
+    "Site_info": "",
+    "Inst_serial": 12046003,
+    "PRO": true,
+    "Stream_configured": true,
+    "Stream_max": 16,
+    "Channel1": {
+        "Installed": true,
+        "Disabled": false,
+        "Serial": 58545,
+        "Description": "CP-4900 Backflush Column Module, 10m PPQ",
+        "Gas": "Helium"
+    },
+    "Channel2": {
+        "Installed": false,
+        "Disabled": false,
+        "Serial": -1,
+        "Description": "",
+        "Gas": "Helium"
+    },
+    "Channel3": {
+        "Installed": false,
+        "Disabled": false,
+        "Serial": -1,
+        "Description": "",
+        "Gas": "Helium"
+    },
+    "Channel4": {
+        "Installed": false,
+        "Disabled": false,
+        "Serial": -1,
+        "Description": "",
+        "Gas": "Helium"
+    }
+}

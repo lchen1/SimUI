@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>490 MicroGC</title>
+    <meta charset="utf-8">
+    <meta name="Author" content="SHU Mslin/Liu">
+    <link rel="stylesheet" type="text/css" href="../css/data.css">
+    <link rel="stylesheet" type="text/css" href="../js/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../js/easyui/themes/icon.css">
+    <script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/easyui/jquery.easyui.min.js"></script>
+
+
+
+    <script type="text/javascript"   src="sources/dygraph-combined.js"></script>
+    <script src="../js/data0.js"></script>
+    <script>
+
+      $('#tt').tabs({
+        border:false,
+        onSelect:function(title){
+          alert(title+' is selected');
+        }
+      });
+
+    </script>
+
+  </head>
+  <body>	
+    <div id="tt" class="easyui-tabs" style="width:100%;height:250px;">
+      <div title="Channel 1">
+        <div id="graph1"></div>
+      </div>
+      <div title="Channel 2" >
+        <div id="graph2"></div>
+      </div>
+      <div title="Channel 3">
+        <div id="graph3"></div>
+      </div>
+      <div title="Channel 4">
+        <div id="graph4"></div>
+      </div>
+    </div>
+
+    <div id="body">
+
+      <div id="content">
+        <table id="tabel1" cellpadding="5" cellspacing="5">
+          <tr>
+            <td class="double"><b data-localize="report.samp_Res">Sample Results</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Injection_time">Injection time</td>
+            <td id="Injection_time" class="font_blue"></td>
+            <td data-localize="report.Run_id">Run ID</td>
+            <td id="Run_id" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Run_type">Run type</td>
+            <td id="Run_type" class="font_blue"></td>
+            <td data-localize="report.Calibration_level">Calibration level</td>
+            <td id="Calibration_level" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Sample_stream">Sample stream</td>
+            <td id="Sample_stream" class="font_blue"></td>
+            <td data-localize="report.Alarms">Alarms</td>
+            <td id="Alarms" class="font_blue"></td>
+          </tr>
+        </table>
+
+        <hr/>
+
+        <table id="table2" cellpadding="5" cellspacing="5">
+          <tr>
+            <td data-localize="report.Energy_meter" class="double"><b>Energy meter</b></td>
+            <td class="font_blue"></td>
+            <td class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Active_Method" class="double">Active Method</td>
+            <td ></td>
+            <td id="Active_method" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Compressibility_air" class="double">Compressibility air</td>
+            <td id="Compressibility_air_unit"></td>
+            <td id="Compressibility_air_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Reference_temperature" class="double">Reference temperature</td>
+            <td id="Ref_temp_unit"></td>
+            <td id="Ref_temp_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Compressibility" class="double">Compressibility</td>
+            <td id="Compressibility_unit"></td>
+            <td id="Compressibility_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Molar_Mass" class="double">Molar Mass</td>
+            <td id="Molar_mass_unit"></td>
+            <td id="Molar_mass_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Molar_Mass_Ratio" class="double">Molar Mass Ratio</td>
+            <td id="Molar_mass_ratio_unit"></td>
+            <td id="Molar_mass_ratio_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Rel_Density" class="double">Rel.Density</td>
+            <td id="Rel_density_unit"></td>
+            <td id="Rel_density_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Abs_Density" class="double">Abs.Density</td>
+            <td id="Abs_density_unit"></td>
+            <td id="Abs_density_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Hs" class="double">Hs</td>
+            <td id="Hs_unit"></td>
+            <td id="Hs_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Hi" class="double">Hi</td>
+            <td id="Hi_unit"></td>
+            <td id="Hi_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Wobbe_Sup" class="double">Wobbe Sup.</td>
+            <td id="Wobbe_sup_unit"></td>
+            <td id="Wobbe_sup_value" class="font_blue"></td>
+          </tr>
+          <tr>
+            <td data-localize="report.Wobbe_Inf" class="double">Wobbe Inf.</td>
+            <td id="Wobbe_inf_unit"></td>
+            <td id="Wobbe_inf_value" class="font_blue"></td>
+          </tr>
+        </table>
+      </div>
+      <div id="div_right">
+        <table id="table3" cellpadding="5" cellspacing="5" class="font_blue">
+          <tr class="font_black">
+            <td data-localize="report.Components">Components</td>
+            <td data-localize="report.ESTD">ESTD</td>
+            <td data-localize="report.Norms">Norms%</td>
+            <td data-localize="report.Weight">Weight%</td>
+          </tr>
+        </table>
+      </div>
+    </div> 
+
+  </body>
+</html>
