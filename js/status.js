@@ -1,5 +1,12 @@
 function fixed_info(){
-    var data=JSON.parse(sessionStorage.getItem('config_info'));
+    var _tmp = sessionStorage.getItem('config_info');
+    if (_tmp == null)
+    {
+        window.setTimeout("fixed_info()",1000);
+        return;
+    }
+
+    var data=JSON.parse(_tmp);
 
     getId('Inst_name').innerHTML=data.Inst_name;
     getId('Site_info').innerHTML=data.Site_info;
@@ -101,11 +108,14 @@ function fixed_info(){
         getId('Channel4').innerHTML="Channel4<br/>not installed";
     }
 
+    //subscribe to start updating the changeable info 
+    window.setTimeout("changeable_info()",100);
 }
 
 
 function changeable_info(){
 
+    try{
     var config_data=JSON.parse(sessionStorage.getItem('config_info'));
     var status_data=JSON.parse(sessionStorage.getItem('status_info'));
 
@@ -117,7 +127,7 @@ function changeable_info(){
         getId('Channel1_Injector_temp_actual').innerHTML=status_data.Channel1_Injector_temp_Actual.toFixed(2);
         getId('Channel1_Column_press_setpoint').innerHTML=(status_data.Channel1_Column_press_Setpoint/1000.0).toFixed(1);
         getId('Channel1_Column_press_actual').innerHTML=(status_data.Channel1_Column_press_Actual/1000.0).toFixed(2);
-        getId('Channel1_Auto_zero_setpoint').innerHTML=status_data.Channel1_TCD_Auto_zero; 
+        getId('Channel1_Auto_zero_actual').innerHTML=status_data.Channel1_TCD_Auto_zero; 
         if (status_data.Channel1_TCD_Calibrated) {
             getId('Channel1_State_actual').innerHTML=status_data.Channel1_TCD_Auto_State+' / OK';
         }
@@ -134,7 +144,7 @@ function changeable_info(){
         getId('Channel2_Injector_temp_actual').innerHTML=status_data.Channel2_Injector_temp_Actual.toFixed(2);
         getId('Channel2_Column_press_setpoint').innerHTML=(status_data.Channel2_Column_press_Setpoint/1000.0).toFixed(1);
         getId('Channel2_Column_press_actual').innerHTML=(status_data.Channel2_Column_press_Actual/1000.0).toFixed(2);
-        getId('Channel2_Auto_zero_setpoint').innerHTML=status_data.Channel2_TCD_Auto_zero; 
+        getId('Channel2_Auto_zero_actual').innerHTML=status_data.Channel2_TCD_Auto_zero; 
         if (status_data.Channel2_TCD_Calibrated) {
             getId('Channel2_State_actual').innerHTML=status_data.Channel2_TCD_Auto_State+' / OK';
         }
@@ -151,7 +161,7 @@ function changeable_info(){
         getId('Channel3_Column_press_actual').innerHTML=status_data.Channel3_Column_press_Actual.toFixed(2);
         getId('Channel3_Injector_temp_setpoint').innerHTML=(status_data.Channel3_Injector_temp_Setpoint/1000.0).toFixed(1);
         getId('Channel3_Injector_temp_actual').innerHTML=(status_data.Channel3_Injector_temp_Actual/1000.0).toFixed(2);
-        getId('Channel3_Auto_zero_setpoint').innerHTML=status_data.Channel3_TCD_Auto_zero; 
+        getId('Channel3_Auto_zero_actual').innerHTML=status_data.Channel3_TCD_Auto_zero; 
         if (status_data.Channel3_TCD_Calibrated) {
             getId('Channel3_State_actual').innerHTML=status_data.Channel3_TCD_Auto_State+' / OK';
         }
@@ -168,7 +178,7 @@ function changeable_info(){
         getId('Channel4_Column_press_actual').innerHTML=status_data.Channel4_Column_press_Actual.toFixed(2);
         getId('Channel4_Injector_temp_setpoint').innerHTML=(status_data.Channel4_Injector_temp_Setpoint/1000.0).toFixed(1);
         getId('Channel4_Injector_temp_actual').innerHTML=(status_data.Channel4_Injector_temp_Actual/1000.0).toFixed(2);
-        getId('Channel4_Auto_zero_setpoint').innerHTML=status_data.Channel4_TCD_Auto_zero; 
+        getId('Channel4_Auto_zero_actual').innerHTML=status_data.Channel4_TCD_Auto_zero; 
         if (status_data.Channel4_TCD_Calibrated) {
             getId('Channel4_State_actual').innerHTML=status_data.Channel4_TCD_Auto_State+' / OK';
         }
@@ -195,6 +205,10 @@ function changeable_info(){
     else
         $("#GC_status").attr("style","");
     getId('Ext_ready_in').innerHTML=status_data.Ext_ready_in;
+    }
+    finally{
+        window.setTimeout("changeable_info()",1000);
+    }
 }
 
 
@@ -214,7 +228,5 @@ function time(){
     return currentTime;
 }
 
-window.setTimeout("fixed_info()",1000);
-// window.setTimeout("changeable_info()",4000);
-window.setInterval("changeable_info()",1000);
+window.setTimeout("fixed_info()",3000);
 

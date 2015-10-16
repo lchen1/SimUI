@@ -90,8 +90,8 @@ ul.w3-ul li:last-child{border-bottom:none}
 .w3-sidenav a:hover,.w3-sidenav a:focus{background-color:#ccc}
 .w3-sidenav a,.w3-dropnav a{display:block;transition:.3s}
 .w3-dropnav a:hover{text-decoration:underline !important}
-.w3-tab div{display:none}
-.w3-tab div:target{display:block}
+.w3-tab > div{display:none}
+.w3-tab > div:target{display:block}
 .w3-modal{z-index:1;display:none;padding-top:100px;position:fixed;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4)}
 .w3-modal:target{display:block}
 .w3-modal-content{margin:auto;background-color:#f3f3f3;position:relative;padding:0;outline:0;border:1px #555 solid;width:600px}.w3-closebtn{text-decoration:none;float:right;font-size:24px;font-weight:bold;color:inherit}

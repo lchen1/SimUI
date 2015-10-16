@@ -60,9 +60,6 @@ a.topnav-localicons {
     padding-top:6px !important;
     padding-bottom:12px !important;
 }
-i.fa-caret-down,i.fa-caret-up {
-    width:10px;
-}
 #sidemenu h2 {
     font-size:22px;
     padding-left:16px;
@@ -161,18 +158,6 @@ i.fa-caret-down,i.fa-caret-up {
 }
 .w3-theme {color:#fff !important;background-color:#8AC007 !important}
 
-.fa-facebook-square,.fa-twitter-square,.fa-google-plus-square  {
-    padding:0 8px;
-}
-.fa-facebook-square:hover, .fa-thumbs-o-up:hover {
-    color:#3B5998;    
-}
-.fa-twitter-square:hover {
-    color:#55acee;    
-}
-.fa-google-plus-square:hover {
-    color:#dd4b39;    
-}
 #fblikeframe {
     display:none;
 }
@@ -229,7 +214,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
 .gsst_a .gscb_a {
     margin-top: 3px;
 }
-/*For Ã¥ "nullstille" w3css:*/
+
 .w3-topnav a {
     -webkit-transition:background-color 0.3s ease, color 0.3s ease;
     -moz-transition:background-color 0.3s ease, color 0.3s ease;
@@ -299,39 +284,6 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
         height:auto;
     }    
 }
-@font-face {
-  font-family: 'fontawesome';
-  src: url('../lib/fonts/fontawesome.eot?14663396');
-  src: url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
-       url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
-       url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
-       url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-.fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
-}
-.fa-2x {
-  font-size: 2em;
-}
-.fa-home:before { content: '\e800'; }
-.fa-globe:before { content: '\e801'; }
-.fa-search:before { content: '\e802'; }
-.fa-thumbs-o-up:before { content: '\e803'; }
-.fa-left-open:before { content: '\e804'; }
-.fa-right-open:before { content: '\e805'; }
-.fa-facebook-square:before { content: '\e806'; }
-.fa-google-plus-square:before { content: '\e807'; }
-.fa-twitter-square:before { content: '\e808'; }
-.fa-caret-down:before { content: '\e809'; }
-.fa-caret-up:before { content: '\e80a'; }
 
 /*STYLES FOR Ã RETTE OPP I "LYSPÃRA" SOM BLIR FOR SMAL PGA WIDTH 34PX:*/
 .lamp {

@@ -22,7 +22,7 @@ function showWarning(event) {
     </script>
   </head>
 
-  <body>
+  <body class="w3-small">
     <div class="w3-container">
 <?php
 $filelist=glob("../SampleData/var/varian/MulMthd/slot[0-9]");
@@ -39,7 +39,7 @@ for ($i=0; $i < count($filelist); $i++)
   fseek($fp, 0);
   $solution = fread($fp,filesize($filelist[$i]));
 
-  echo "<div class='w3-card w3-large w3-container w3-theme-d2 flip' id='flip".$id."' onclick='togglePanel($id)'>$id. $name</div>\n";
+  echo "<div class='w3-card w3-container w3-theme-d2 flip' id='flip".$id."' onclick='togglePanel($id)'>$id. $name</div>\n";
   echo "<div id='panel".$id."' class='w3-card-4 w3-yellow panel'>\n";
   // load button
   echo "<div class='w3-container'><form action='solution_load.php' method='post' target='hidden_frame'>";

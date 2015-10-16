@@ -5,11 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/w3.css">
-    <link rel="stylesheet" href="css/sim.css">
-    <link rel="stylesheet" href="css/stdtheme.css">
     <link rel="stylesheet" href="css/w3-theme-blue.css">
     <link rel="stylesheet" href="lib/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/fonts/7-led.css">
+    <link rel="stylesheet" href="css/sim.css">
 
 	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
@@ -17,7 +16,7 @@
     <script type="text/javascript" src="js/config.js"></script>
   </head>
   <body class="w3-light-grey">
-    <header class="w3-container w3-theme w3-card top">
+    <header id="header" class="w3-container w3-theme w3-card top">
       <div class="w3-xxlarge toptext w3-wide w3-animate-opacity">Micro GC 490</div>
       <img src="images/barlogo.png" alt="Agilent Technologies" class="w3-right topimg img-responsive w3-animate-right" style="height:40px;margin-top:20px;"/>
     </header>
@@ -58,10 +57,10 @@
           <div class="w3-light-grey" id="sidemenuinner">
             <a href="#" onclick="close_menu()" class="w3-closebtn w3-hide-large w3-large" style="padding:3px 12px;">&times;</a>
             <a target="i_view" href="status/status.html" onclick="close_menu()">Status</a>
-            <a target="i_view" href="data/data.php" onclick="close_menu()">Data</a>
+            <a target="i_view" href="chrom/chrom_main.php" onclick="close_menu()">Data</a>
             <a target="i_view" href="solution/solution.php" onclick="close_menu()">Solution</a>
             <a target="i_view" href="calibration/calibration.html" onclick="close_menu()">Calibration</a>
-            <a target="i_view" href="sequence1/sequence.html" onclick="close_menu()">Sequence</a>
+            <a target="i_view" href="sequence/sequence.html" onclick="close_menu()">Sequence</a>
             <div>&nbsp;</div>
           </div>
 
@@ -79,7 +78,7 @@
       </div>
     </article>
 
-    <footer class="w3-container w3-theme-light w3-hide-medium w3-hide-small" style="position:fixed;bottom:0px;z-index:2;width:100%;clear:both">
+    <footer id="footer" class="w3-container w3-theme-light w3-hide-medium w3-hide-small" style="position:fixed;bottom:0px;z-index:2;width:100%;clear:both">
       <p class="w3-tiny w3-right">Copyright &#169; Agilent 2015</p>
     </footer>
 

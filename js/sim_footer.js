@@ -22,7 +22,12 @@ var zbeforeResize = window.innerWidth;
 
 function resizeIframe() {
     var obj = document.getElementById("main");
-    obj.style.height = (obj.contentWindow.document.body.scrollHeight + 100) + "px";
+    //obj.style.height = (obj.contentWindow.document.body.scrollHeight) + "px";
+    obj.style.height = document.documentElement.clientHeight
+        //- document.getElementById("header").offsetHeight
+        //- document.getElementById("topnav").offsetHeight
+        //- document.getElementById("monitors").offsetHeight
+        - 45 + "px";
 }
 
 function browserResize() {
@@ -145,13 +150,19 @@ function w3_close_nav(x) {
 function w3_close_all_nav() {
     /*w3_close_nav("translate");*/
 }
+function w3_close_all() {
+    w3_close_all_nav();
+    close_menu();
+}
 (function () {
     if (window.addEventListener) { 
-        document.getElementById("main").addEventListener("click", w3_close_all_nav, true);
-        document.getElementById("sidemenu").addEventListener("click", w3_close_all_nav, true);
+        document.getElementById("main").addEventListener("click", w3_close_all, true);
+        document.getElementById("topnav").addEventListener("click", w3_close_all, true);
+        document.getElementById("monitors").addEventListener("click", w3_close_all, true);
     } else if (window.attachEvent) {                 
-        document.getElementById("main").attachEvent("onclick", w3_close_all_nav);
-        document.getElementById("sidemenu").attachEvent("onclick", w3_close_all_nav);
+        document.getElementById("main").attachEvent("onclick", w3_close_all);
+        document.getElementById("topnav").addEventListener("click", w3_close_all, true);
+        document.getElementById("monitors").addEventListener("click", w3_close_all, true);
     }
     
 })();

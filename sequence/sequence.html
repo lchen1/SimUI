@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>490 MicroGC</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../js/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../js/easyui/themes/icon.css">
+    <link rel="stylesheet" href="../lib/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/sequence1.js"></script>
+  </head>
+
+  <body>
+    <div class="w3-row">
+      <div class="w3-half">
+        <a id="refresh" style="margin:5px;width:60px;height:30px">Refresh</a>
+        <a id="download" style="margin:5px;width:60px;height:30px">Save</a>
+        <a id="add" style="margin:5px 0px 5px 5px;width:30px;height:30px;"><i class="fa fa-plus"></i></a>
+        <a id="remove" style="margin:5px 0px 5px 0px;width:30px;height:30px;"><i class="fa fa-minus"></i></a>
+      </div>
+      <div class="w3-half">
+        <span id="con" style="margin:5px;">Continuous:<input type="checkbox" id="cb"/></span>
+        <span id="seq" style="margin:5px;">Repeat:<input type="text" style="width:40px;" id="nb" /></span>
+      </div>
+      <table id="sequence"></table>
+    </div>
+  </body>
+</html>
