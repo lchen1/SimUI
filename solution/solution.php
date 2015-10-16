@@ -6,20 +6,8 @@
     <link rel="stylesheet" type="text/css" href="../css/w3.css" />
     <link rel="stylesheet" type="text/css" href="../css/w3-theme-blue.css">
     <link rel="stylesheet" type="text/css" href="../css/solution.css" />
-    <script src="../js/jquery-1.11.3.min.js"></script>
-    <script>
-function togglePanel(id) {
-  $(".panel[id!='panel"+id+"']").slideUp('quick'); 
-  $(".panel[id='panel"+id+"']").slideToggle('quick'); 
-}
-
-function showWarning(event) {
-  var event = event || window.event;
-  if(!confirm("Warning:the solution will overwrite the current GC method and application.\nDo you want to proceed?\n")){ 
-    event.returnValue = false; 
-  }
-}
-    </script>
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/solution.js"></script>
   </head>
 
   <body class="w3-small">
@@ -44,7 +32,7 @@ for ($i=0; $i < count($filelist); $i++)
   // load button
   echo "<div class='w3-container'><form action='solution_load.php' method='post' target='hidden_frame'>";
   echo "<input type='hidden' name='slotid' value='$id'>";
-  echo "<input type='submit' class='w3-btn w3-theme' value='Load' onclick='showWarning(event)'><span class='w3-tag w3-red'>Invalid!</span>";
+  echo "<input type='submit' class='w3-btn w3-theme' value='Load' onclick='showWarning(event)'><span id='tag$id' class='w3-tag w3-red'>Invalid!</span>";
   echo "</form></div>\n";
   // content
   echo "<div class='w3-container content'><pre>\n";
