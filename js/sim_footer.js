@@ -154,6 +154,30 @@ function w3_close_all() {
     w3_close_all_nav();
     close_menu();
 }
+
+function run_changed() {
+    var _tmp = sessionStorage.getItem('config_info');
+    if (_tmp != null)
+    {
+        var data=JSON.parse(_tmp);
+        if (!data.Stream_configured)
+            return;
+    }
+
+    if (document.getElementById("rd_single").checked)
+    {
+        document.getElementById("div_stream").style.display="block";
+    }
+    else if (document.getElementById("rd_auto").checked)
+    {
+        document.getElementById("div_stream").style.display="none";
+    }
+    else if (document.getElementById("rd_calib").checked)
+    {
+        document.getElementById("div_stream").style.display="block";
+    }
+}
+
 (function () {
     if (window.addEventListener) { 
         document.getElementById("main").addEventListener("click", w3_close_all, true);
@@ -164,6 +188,43 @@ function w3_close_all() {
         document.getElementById("topnav").addEventListener("click", w3_close_all, true);
         document.getElementById("monitors").addEventListener("click", w3_close_all, true);
     }
+
+    $("input#startsubmit").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "control/start.php", //process to mail
+            data: $('form#startform').serialize(),
+            success: function(msg){
+                $("#thanks").html(msg); //hide button and show thank you
+                $("#id_play").hide(); //hide popup  
+            },
+            error: function(){
+                alert("failure");
+            }
+        });
+    });
+
+    $("input#stopsubmit").click(function(){
+        if (!confirm("Do you want to proceed?"))
+        {
+            window.event.returnValue = false;
+        }
+        else
+        {
+            $.ajax({
+                type: "POST",
+                url: "control/stop.php", //process to mail
+                data: $('form#stopform').serialize(),
+                success: function(msg){
+                    $("#thanks").html(msg); //hide button and show thank you
+                    $("#id_stop").hide(); //hide popup  
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
+    });
     
 })();
 

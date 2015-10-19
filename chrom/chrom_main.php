@@ -1,14 +1,16 @@
 <?php
-$def_dir="../SampleData/var/varian/";
+$def_dir="/var/varian/";
 
-$first_dir="../SampleData/mnt/usbdisk/gcroot/";
-$usbc=shell_exec("cat ../SampleData/var/GC_App.ini | grep '^USBC_SERVERDIR'");
+$first_dir="/mnt/usbdisk/gcroot/";
+$usbc=shell_exec("cat /var/GC_App.ini | grep '^USBC_SERVERDIR'");
 $second_dir=trim(substr($usbc, 15));
 $usbdir=$first_dir.$second_dir."/";				 	
 
 $datfilelist=glob($usbdir."Chrom*.dat");
 $txtfilelist=glob($usbdir."SampRslt*.txt");
 //echo $datfilelist;
+$datname = array();
+$txtname = array();
 for ($i=0;$i<count($datfilelist);$i++){
     // truncate left string 'Chrom_'
     $datname[$i]=ltrim(basename($datfilelist[$i],".dat"),"Chrom_");							

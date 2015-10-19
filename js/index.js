@@ -133,7 +133,7 @@ function chuli(){
             }
             else if(data.GC_State.indexOf("Running") >= 0){
                 $(document).ready(function(){
-                    $("#GC_state").attr("class","w3-center w3-cyan");
+                    $("#GC_state").attr("class","w3-center w3-indigo");
                 }); 
             }
             else{

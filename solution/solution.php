@@ -13,7 +13,7 @@
   <body class="w3-small">
     <div class="w3-container">
 <?php
-$filelist=glob("../SampleData/var/varian/MulMthd/slot[0-9]");
+$filelist=glob("/var/varian/MulMthd/slot[0-9]");
 //var_dump($filelist);
 for ($i=0; $i < count($filelist); $i++)
 {

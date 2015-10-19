@@ -68,6 +68,12 @@ function chuli_config(){
 
         // var data = JSON.parse(sessionStorage.getItem('config_info'));
         // window.alert(data);
+
+        if (!config.Stream_configured)
+        {
+            $('#div_stream').hide();
+            $('#menu_sequence').hide();
+        }
     }
 }
 

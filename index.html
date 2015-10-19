@@ -26,8 +26,8 @@
         <div style="overflow:auto;">
           <a href="javascript:void(0)" class="topnav-icons w3-hide-large w3-left" onclick="open_menu()" title="Menu"><i class="fa fa-bars"></i></a>
           <a href="/index.html" class="topnav-icons w3-left" title="Home"><i class="fa fa-home"></i></a>
-          <a href="#id_play" class="topnav-icons"><i class="fa fa-play-circle">&nbsp;Run</i></a>
-          <a href="javascript:void(0)" class="topnav-icons"><i class="fa fa-stop">&nbsp;Stop</i></a>
+          <a href="javascript:void(0)" class="topnav-icons" onclick="document.getElementById('id_play').style.display='block'"><i class="fa fa-play-circle">&nbsp;Run</i></a>
+          <a href="javascript:void(0)" class="topnav-icons" onclick="document.getElementById('id_stop').style.display='block'"><i class="fa fa-stop">&nbsp;Stop</i></a>
           <a href="javascript:void(0)" class="topnav-icons w3-right" title="Choose language"><i class="fa fa-globe"></i></a>
         </div>
       </div>
@@ -60,7 +60,7 @@
             <a target="i_view" href="chrom/chrom_main.php" onclick="close_menu()">Data</a>
             <a target="i_view" href="solution/solution.php" onclick="close_menu()">Solution</a>
             <a target="i_view" href="calibration/calibration.html" onclick="close_menu()">Calibration</a>
-            <a target="i_view" href="sequence/sequence.html" onclick="close_menu()">Sequence</a>
+            <a target="i_view" href="sequence/sequence.html" id="menu_sequence" onclick="close_menu()">Sequence</a>
             <div>&nbsp;</div>
           </div>
 
@@ -78,34 +78,62 @@
       </div>
     </article>
 
-    <footer id="footer" class="w3-container w3-theme-light w3-hide-medium w3-hide-small" style="position:fixed;bottom:0px;z-index:2;width:100%;clear:both">
-      <p class="w3-tiny w3-right">Copyright &#169; Agilent 2015</p>
+    <footer id="footer" class="w3-container w3-theme-light w3-row" style="position:fixed;bottom:0px;z-index:2;width:100%;clear:both">
+      <div id="thanks" class="w3-tiny w3-half w3-hide-small">msg:</div>
+      <div class="w3-half"><span class="w3-tiny w3-right">Copyright &#169; Agilent 2015</span></div>
     </footer>
 
     <div id="id_play" class="w3-modal">
       <div class="w3-modal-content w3-card-4">
         <header class="w3-container w3-theme">
-          <a href="javascript:void(0)" class="w3-closebtn">&times;</a>
-          <h4>Start Run</h4>
+        <a href="javascript:void(0)" class="w3-closebtn" onclick="document.getElementById('id_play').style.display='none'">&times;</a>
+        <h4>Start Run</h4>
         </header>
-        <form class="w3-container">
+        <form class="w3-container" id="startform">
           <p>Choose the type of run:</p>
           <label class="w3-checkbox">
-            <input type="radio" name="runtype" value="single" checked>
+            <input id="rd_single" type="radio" name="type" value="single" onchange="run_changed()" checked>
             <div class="w3-checkmark"></div>&nbsp;Single Run
           </label><br>
           <label class="w3-checkbox">
-            <input type="radio" name="runtype" value="sequence">
+            <input id="rd_auto" type="radio" name="type" value="auto" onchange="run_changed()">
             <div class="w3-checkmark"></div>&nbsp;Sequence Run
           </label><br>
           <label class="w3-checkbox">
-            <input type="radio" name="runtype" value="calibrate">
+            <input id="rd_calib" type="radio" name="type" value="calib" onchange="run_changed()">
             <div class="w3-checkmark"></div>&nbsp;Calibration Run
           </label>
+          <div id="div_stream" class="w3-group">
+            <label>Stream No.</label>
+            <input id="text-stream" class="w3-input" type="text" name="stream" value="1">
+          </div>
         </form>
         <footer class="w3-container w3-theme">
-          <button class="w3-btn w3-steal w3-section">OK</button>
-          <button class="w3-btn w3-steal w3-section w3-right">Cancel</button>
+        <input type="submit" value="OK" id="startsubmit" class="w3-btn w3-steal w3-section">
+        <button class="w3-btn w3-steal w3-section w3-right" onclick="document.getElementById('id_play').style.display='none'">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="id_stop" class="w3-modal">
+      <div class="w3-modal-content w3-card-4">
+        <header class="w3-container w3-theme">
+          <a href="javascript:void(0)" class="w3-closebtn" onclick="document.getElementById('id_stop').style.display='none'">&times;</a>
+          <h4>Stop Run</h4>
+        </header>
+        <form class="w3-container" id="stopform">
+          <label class="w3-checkbox">
+            <input type="radio" name="type" value="now" checked>
+            <div class="w3-checkmark"></div>&nbsp;Stop current run now!
+          </label><br>
+          <label class="w3-checkbox">
+            <input type="radio" name="type" value="auto">
+            <div class="w3-checkmark"></div>&nbsp;Stop sequence after current run completed.
+          </label><br>
+        </form>
+        <footer class="w3-container">
+          <input type="submit" value="OK" id="stopsubmit" class="w3-btn w3-steal w3-section">
+          <button class="w3-btn w3-steal w3-section w3-right" onclick="document.getElementById('id_stop').style.display='none'">Cancel</button>
         </footer>
       </div>
     </div>
