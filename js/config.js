@@ -74,6 +74,7 @@ function chuli_config(){
             $('#div_stream').hide();
             //$('#menu_sequence').hide();
         }
+    
     }
 }
 

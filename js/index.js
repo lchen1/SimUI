@@ -150,6 +150,8 @@ function chuli(){
             getId('left_time').innerHTML=data.Total_run_time - data.Run_time;
             // getId('Error_code').innerHTML=res_objects.STRoot.Status.Error_code;
         }
+        catch (e) {
+        }
         finally{
             // schedule the next request only when current on is completed.
             window.setTimeout("updateData()",500);

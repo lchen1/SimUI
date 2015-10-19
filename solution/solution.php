@@ -32,7 +32,7 @@ for ($i=0; $i < count($filelist); $i++)
   // load button
   echo "<div class='w3-container'><form action='solution_load.php' method='post' target='hidden_frame'>";
   echo "<input type='hidden' name='slotid' value='$id'>";
-  echo "<input type='submit' class='w3-btn w3-theme' value='Load' onclick='showWarning(event)'><span id='tag$id' class='w3-tag w3-red'>Invalid!</span>";
+  echo "<input type='submit' class='w3-btn w3-theme' value='Load' onclick='showWarning(event)'>";
   echo "</form></div>\n";
   // content
   echo "<div class='w3-container content'><pre>\n";

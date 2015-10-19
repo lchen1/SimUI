@@ -10,7 +10,7 @@ $(function(){
     ];
     
     var config_data=JSON.parse(sessionStorage.getItem('config_info'));
-    if (!config_data.Stream_configured)
+    if (config_data != null && !config_data.Stream_configured)
     {
         $('#add').hide();
         $('#remove').hide();

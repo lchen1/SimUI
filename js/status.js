@@ -206,6 +206,8 @@ function changeable_info(){
         $("#GC_status").attr("style","");
     getId('Ext_ready_in').innerHTML=status_data.Ext_ready_in;
     }
+    catch (e) {
+    }
     finally{
         window.setTimeout("changeable_info()",1000);
     }
