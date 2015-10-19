@@ -32,7 +32,8 @@ $(function(){
         editor:{
             type:'numberbox',
             options:{
-                precision:1
+                precision:1,
+                required: true
             }
         }
     },
@@ -108,7 +109,7 @@ $(function(){
                     type:"POST",
                     url:"download.php",
                     data:{
-                        row:JSON.stringify(info,'',100),
+                        row:JSON.stringify(info,'',2),
                     },		     
                     success:function(data){
                     }

@@ -27,7 +27,7 @@ function chuli(){
     if (myXmlHttpRequest.readyState==4 && myXmlHttpRequest.status==200) {
         try
         {
-            var res_objects=eval("("+myXmlHttpRequest.responseText+")");
+            var res_objects=JSON.parse(myXmlHttpRequest.responseText);
             var status={};
 
             status.GC_time=res_objects.GC_time;
@@ -142,7 +142,7 @@ function chuli(){
                 });
             }
             if(!data.Continuous){
-                getId('run_num').innerHTML=data.Seq_line+'-'+data.Line_replicate;
+                getId('run_num').innerHTML= data.Seq_replicate+':'+ data.Seq_line+'-'+data.Line_replicate;
             }
             else{
                  getId('run_num').innerHTML= "&infin;";

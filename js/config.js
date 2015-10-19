@@ -28,7 +28,7 @@ function updateConfigData(){
 function chuli_config(){
     if (myConfigXmlHttpRequest.readyState==4 && myConfigXmlHttpRequest.status==200) {
         // window.alert("ok");
-        var config_objects=eval("("+myConfigXmlHttpRequest.responseText+")");
+        var config_objects= JSON.parse(myConfigXmlHttpRequest.responseText);
         // window.alert(config_objects);
 
         var config={};
@@ -72,7 +72,7 @@ function chuli_config(){
         if (!config.Stream_configured)
         {
             $('#div_stream').hide();
-            $('#menu_sequence').hide();
+            //$('#menu_sequence').hide();
         }
     }
 }

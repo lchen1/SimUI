@@ -205,25 +205,18 @@ function run_changed() {
     });
 
     $("input#stopsubmit").click(function(){
-        if (!confirm("Do you want to proceed?"))
-        {
-            window.event.returnValue = false;
-        }
-        else
-        {
-            $.ajax({
-                type: "POST",
-                url: "control/stop.php", //process to mail
-                data: $('form#stopform').serialize(),
-                success: function(msg){
-                    $("#thanks").html(msg); //hide button and show thank you
-                    $("#id_stop").hide(); //hide popup  
-                },
-                error: function(){
-                    alert("failure");
-                }
-            });
-        }
+        $.ajax({
+            type: "POST",
+            url: "control/stop.php", //process to mail
+            data: $('form#stopform').serialize(),
+            success: function(msg){
+                $("#thanks").html(msg); //hide button and show thank you
+                $("#id_stop").hide(); //hide popup  
+            },
+            error: function(){
+                alert("failure");
+            }
+        });
     });
     
 })();

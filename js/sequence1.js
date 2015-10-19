@@ -8,6 +8,14 @@ $(function(){
     {processid:'Calibration',name:'Calibration'},
     {processid:'Verification',name:'Verification'}
     ];
+    
+    var config_data=JSON.parse(sessionStorage.getItem('config_info'));
+    if (!config_data.Stream_configured)
+    {
+        $('#add').hide();
+        $('#remove').hide();
+        $('table#sequence').hide();
+    }
 
     $('#sequence').datagrid({
         url:'upload.php',
@@ -29,26 +37,37 @@ $(function(){
         width:60,
         editor:{
             type:'combobox',
-        options:{
-            valueField:"processid",
-            textField:"name",
-            data:process,
-            editable:false
-                //required:true		        			  
-        }
+            options:{
+                valueField:"processid",
+                textField:"name",
+                data:process,
+                editable:false
+            }
         }
     },
     {
         title:'Repeat',
         field:'Repeat',	
         width:40,
-        editor:'numberbox'
+        editor:{
+            type: 'numberbox',
+            options:{
+                min:1,
+                required: true
+            }
+        }
     },
     {
         title:'Stream',
         field:'Stream',	
         width:20,
-        editor:'numberbox'
+        editor:{
+            type:'numberbox',
+            options:{
+                min:1,
+                required: true
+            }
+        }
     },
     {
         title:'Flush time',
@@ -57,7 +76,9 @@ $(function(){
         editor:{
             type:'numberbox',
             options:{
-                precision:1
+                min:1,
+                precision:1,
+                required: true
             }
         }
     },
@@ -70,17 +91,18 @@ $(function(){
     {
         var index=data.Table_repeat;
         var con=data.Continuous;
-        $('#nb').numberbox({
+        $('#repeat').numberbox({
             min:1,
-            value:index
+            value:index,
+            required: true
         });	
         if(con){
-            $('#cb').prop("checked", true);
-            $('#seq').hide();
+            $('#cb_continue').prop("checked", true);
+            $('#span_repeat').hide();
         }
         else{
-            $('#cb').prop("checked", false);
-            $('#seq').show();
+            $('#cb_continue').prop("checked", false);
+            $('#span_repeat').show();
         }
     },
     onClickRow:function(rowIndex,rowData){
@@ -125,8 +147,10 @@ $(function(){
         {
             $("#sequence").datagrid('endEdit', editRow);
             var info=$('#sequence').datagrid('getData');
-            var v = $('#nb').numberbox('getValue');
+            var c = $('#cb_continue').is(':checked');
+            var v = $('#repeat').numberbox('getValue');
             info.Table_repeat=parseInt(v);
+            info.Continuous=c;
 
             var isvalid;
             for(var i=0;i<info.total;i++){
@@ -149,7 +173,7 @@ $(function(){
                     type:"POST",
                     url:"download.php",
                     data:{
-                        row:JSON.stringify(info,'',100),
+                        row:JSON.stringify(info,'',2),
                     },		     
                     success:function(data){
                         console.log(data);
@@ -169,9 +193,9 @@ $(function(){
                 index:index+1,
                 row:{
                     Type:"Analysis",
-                Repeat: 1,
-                Stream: 1,
-                Flush_time: 20.0,
+                    Repeat: 1,
+                    Stream: 1,
+                    Flush_time: 20.0,
                 },		        		 
             });	      		  
         }
@@ -187,9 +211,9 @@ $(function(){
         }
     });
 
-    $('#cb').change(function () {
+    $('#cb_continue').change(function () {
         $('#sequence').datagrid('getData').Continuous = !$('#sequence').datagrid('getData').Continuous;
-        $('#seq').toggle();
+        $('#span_repeat').toggle();
     });
 });
 
