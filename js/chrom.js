@@ -38,17 +38,17 @@ function getReport(dir, tt){
 
 function show_list()
 {
-    $('#dcontent').hide('quick');
+    $('#dcontent').hide();
     $('#dlist').show('slow');
 }
 
 function show_detail(dir, target)
 {
     console.log(dir + target);
-    $('#dlist').hide('quick');
-    $('#dcontent').show('slow');
     getChromData(dir, target);
     getReport(dir, target);
+    $('#dlist').hide();
+    $('#dcontent').show('slow');
 }
 
 function plotGraphs() {

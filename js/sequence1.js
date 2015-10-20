@@ -9,14 +9,6 @@ $(function(){
     {processid:'Verification',name:'Verification'}
     ];
     
-    var config_data=JSON.parse(sessionStorage.getItem('config_info'));
-    if (config_data != null && !config_data.Stream_configured)
-    {
-        $('#add').hide();
-        $('#remove').hide();
-        $('table#sequence').hide();
-    }
-
     $('#sequence').datagrid({
         url:'upload.php',
         width:400,
@@ -52,7 +44,7 @@ $(function(){
         editor:{
             type: 'numberbox',
             options:{
-                min:1,
+                min:0,
                 required: true
             }
         }
@@ -64,7 +56,7 @@ $(function(){
         editor:{
             type:'numberbox',
             options:{
-                min:1,
+                min:0,
                 required: true
             }
         }
@@ -76,7 +68,7 @@ $(function(){
         editor:{
             type:'numberbox',
             options:{
-                min:1,
+                min:0,
                 precision:1,
                 required: true
             }
@@ -130,6 +122,13 @@ $(function(){
     }
     });
 
+    var config_data=JSON.parse(sessionStorage.getItem('config_info'));
+    if (config_data != null && !config_data.Stream_configured)
+    {
+        $('#add').hide();
+        $('#remove').hide();
+        $('#easytable').hide();
+    }
 
     $('#refresh').linkbutton({
         onClick:function(){
