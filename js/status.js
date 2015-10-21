@@ -2,114 +2,120 @@ function fixed_info(){
     var _tmp = sessionStorage.getItem('config_info');
     if (_tmp == null)
     {
-        window.setTimeout("fixed_info()",1000);
+        window.setTimeout("fixed_info()", 200);
         return;
     }
 
-    var data=JSON.parse(_tmp);
+    try{
+        var data=JSON.parse(_tmp);
 
-    getId('Inst_name').innerHTML=data.Inst_name;
-    getId('Site_info').innerHTML=data.Site_info;
-    getId('Inst_serial').innerHTML=data.Inst_serial;
+        getId('Inst_name').innerHTML=data.Inst_name;
+        getId('Site_info').innerHTML=data.Site_info;
+        getId('Inst_serial').innerHTML=data.Inst_serial;
 
-    //Channel1
-    if(data.Channel1_Installed){
-        if(!data.Channel1_Disabled){
-            getId('Channel1').innerHTML="Channel1";
+        //Channel1
+        if(data.Channel1_Installed){
+            if(!data.Channel1_Disabled){
+                getId('Channel1').innerHTML="Channel1";
 
-            $(document).ready(function(){
-                $(".channel1").attr("class","action");
-                $("#Channel1").attr("class","set");
-                $("#set1").attr("class","set");
-                $("#act1").attr("class","set");
-            });
+                $(document).ready(function(){
+                    $(".channel1").attr("class","action");
+                    $("#Channel1").attr("class","set");
+                    $("#set1").attr("class","set");
+                    $("#act1").attr("class","set");
+                });
+            }
+            else{
+                getId('Channel1').innerHTML="Channel1<br/>disabled";
+            }
+            getId('Channel1_Description').innerHTML=data.Channel1_Description;//Undefined
+            getId('Channel1_Carrier_gas').innerHTML=data.Channel1_Gas;
+            getId('Channel1_Serial_num').innerHTML=data.Channel1_Serial;
+
         }
         else{
-            getId('Channel1').innerHTML="Channel1<br/>disabled";
+            getId('Channel1').innerHTML="Channel1<br/>not installed";
         }
-        getId('Channel1_Description').innerHTML=data.Channel1_Description;//Undefined
-        getId('Channel1_Carrier_gas').innerHTML=data.Channel1_Gas;
-        getId('Channel1_Serial_num').innerHTML=data.Channel1_Serial;
 
-    }
-    else{
-        getId('Channel1').innerHTML="Channel1<br/>not installed";
-    }
+        //Channel2
+        if(data.Channel2_Installed){
+            if(!data.Channel2_Disabled){
+                getId('Channel2').innerHTML="Channel1";
 
-    //Channel2
-    if(data.Channel2_Installed){
-        if(!data.Channel2_Disabled){
-            getId('Channel2').innerHTML="Channel1";
+                $(document).ready(function(){
+                    $(".channel2").attr("class","action");
+                    $("#Channel2").attr("class","set");
+                    $("#set2").attr("class","set");
+                    $("#act2").attr("class","set");
+                });
+            }
+            else{
+                getId('Channel2').innerHTML="Channel2<br/>disabled";
+            }
+            getId('Channel2_Description').innerHTML=data.Channel1_Description;//Undefined
+            getId('Channel2_Carrier_gas').innerHTML=data.Channel1_Gas;
+            getId('Channel2_Serial_num').innerHTML=data.Channel1_Serial;
 
-            $(document).ready(function(){
-                $(".channel2").attr("class","action");
-                $("#Channel2").attr("class","set");
-                $("#set2").attr("class","set");
-                $("#act2").attr("class","set");
-            });
-        }
-        else{
-            getId('Channel2').innerHTML="Channel2<br/>disabled";
-        }
-        getId('Channel2_Description').innerHTML=data.Channel1_Description;//Undefined
-        getId('Channel2_Carrier_gas').innerHTML=data.Channel1_Gas;
-        getId('Channel2_Serial_num').innerHTML=data.Channel1_Serial;
-
-    }
-    else{
-        getId('Channel2').innerHTML="Channel2<br/>not installed";
-    }
-
-    //Channel3
-    if(data.Channel3_Installed){
-        if(!data.Channel3_Disabled){
-            getId('Channel3').innerHTML="Channel3";
-
-            $(document).ready(function(){
-                $(".channel3").attr("class","action");
-                $("#Channel3").attr("class","set");
-                $("#set3").attr("class","set");
-                $("#act3").attr("class","set");
-            });
         }
         else{
-            getId('Channel3').innerHTML="Channel3<br/>disabled";
+            getId('Channel2').innerHTML="Channel2<br/>not installed";
         }
-        getId('Channel3_Description').innerHTML=data.Channel3_Description;//Undefined
-        getId('Channel3_Carrier_gas').innerHTML=data.Channel3_Gas;
-        getId('Channel3_Serial_num').innerHTML=data.Channel3_Serial;
 
-    }
-    else{
-        getId('Channel3').innerHTML="Channel3<br/>not installed";
-    }
+        //Channel3
+        if(data.Channel3_Installed){
+            if(!data.Channel3_Disabled){
+                getId('Channel3').innerHTML="Channel3";
 
-    //Channel4
-    if(data.Channel4_Installed){
-        if(!data.Channel4_Disabled){
-            getId('Channel4').innerHTML="Channel4";
+                $(document).ready(function(){
+                    $(".channel3").attr("class","action");
+                    $("#Channel3").attr("class","set");
+                    $("#set3").attr("class","set");
+                    $("#act3").attr("class","set");
+                });
+            }
+            else{
+                getId('Channel3').innerHTML="Channel3<br/>disabled";
+            }
+            getId('Channel3_Description').innerHTML=data.Channel3_Description;//Undefined
+            getId('Channel3_Carrier_gas').innerHTML=data.Channel3_Gas;
+            getId('Channel3_Serial_num').innerHTML=data.Channel3_Serial;
 
-            $(document).ready(function(){
-                $(".channel4").attr("class","action");
-                $("#Channel4").attr("class","set");
-                $("#set4").attr("class","set");
-                $("#act4").attr("class","set");
-            });
         }
         else{
-            getId('Channel4').innerHTML="Channel4<br/>disabled";
+            getId('Channel3').innerHTML="Channel3<br/>not installed";
         }
-        getId('Channel4_Description').innerHTML=data.Channel4_Description;//Undefined
-        getId('Channel4_Carrier_gas').innerHTML=data.Channel4_Gas;
-        getId('Channel4_Serial_num').innerHTML=data.Channel4_Serial;
 
-    }
-    else{
-        getId('Channel4').innerHTML="Channel4<br/>not installed";
-    }
+        //Channel4
+        if(data.Channel4_Installed){
+            if(!data.Channel4_Disabled){
+                getId('Channel4').innerHTML="Channel4";
 
-    //subscribe to start updating the changeable info 
-    window.setTimeout("changeable_info()",100);
+                $(document).ready(function(){
+                    $(".channel4").attr("class","action");
+                    $("#Channel4").attr("class","set");
+                    $("#set4").attr("class","set");
+                    $("#act4").attr("class","set");
+                });
+            }
+            else{
+                getId('Channel4').innerHTML="Channel4<br/>disabled";
+            }
+            getId('Channel4_Description').innerHTML=data.Channel4_Description;//Undefined
+            getId('Channel4_Carrier_gas').innerHTML=data.Channel4_Gas;
+            getId('Channel4_Serial_num').innerHTML=data.Channel4_Serial;
+
+        }
+        else{
+            getId('Channel4').innerHTML="Channel4<br/>not installed";
+        }
+
+        //subscribe to start updating the changeable info 
+        window.setTimeout("changeable_info()",100);
+    }
+    catch(e)
+    {
+        window.setTimeout("fixed_info()", 200);
+    }
 }
 
 

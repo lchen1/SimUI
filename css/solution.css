@@ -4,7 +4,7 @@
     margin: 0px 10px 0px 10px;
 }
 .panel pre{
-    overflow-x:hidden;
+    overflow-x:scroll;
 }
 .flip{
     border-radius: 10px;
